@@ -19,16 +19,24 @@ namespace SMP
         {
             this.Buyers = new HashSet<Buyer>();
             this.Sells = new HashSet<Sell>();
+            this.Buyers1 = new HashSet<Buyer>();
+            this.Buyers2 = new HashSet<Buyer>();
         }
     
         public int ID { get; set; }
         public string CAT_Name { get; set; }
         public Nullable<double> CAT_Price_buy { get; set; }
         public Nullable<double> CAT_Price_sale { get; set; }
+        public Nullable<int> ItemQuantity { get; set; }
+        public Nullable<double> TotalBuy { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Buyer> Buyers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sell> Sells { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Buyer> Buyers1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Buyer> Buyers2 { get; set; }
     }
 }

@@ -35,8 +35,8 @@ namespace SMP
             this.txtBuyingDate = new System.Windows.Forms.GroupBox();
             this.txtid = new System.Windows.Forms.TextBox();
             this.txtitemName = new System.Windows.Forms.ComboBox();
-            this.tBCATBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dB_SMPDataSet1 = new SMP.DB_SMPDataSet1();
+            this.tBCATBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.dB_SMPDataSet7 = new SMP.DB_SMPDataSet7();
             this.txtSuppliersName = new System.Windows.Forms.ComboBox();
             this.tBSUPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dB_SMPDataSet3 = new SMP.DB_SMPDataSet3();
@@ -44,6 +44,8 @@ namespace SMP
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.tBCATBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dB_SMPDataSet1 = new SMP.DB_SMPDataSet1();
             this.BtnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtTotalPrice = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
@@ -61,16 +63,29 @@ namespace SMP
             this.tBCATBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tB_CATTableAdapter1 = new SMP.DB_SMPDataSet2TableAdapters.TB_CATTableAdapter();
             this.tB_SUPTableAdapter = new SMP.DB_SMPDataSet3TableAdapters.TB_SUPTableAdapter();
+            this.dB_SMPDataSet5 = new SMP.DB_SMPDataSet5();
+            this.tBCATBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.tB_CATTableAdapter2 = new SMP.DB_SMPDataSet5TableAdapters.TB_CATTableAdapter();
+            this.dB_SMPDataSet6 = new SMP.DB_SMPDataSet6();
+            this.buyersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.buyersTableAdapter = new SMP.DB_SMPDataSet6TableAdapters.BuyersTableAdapter();
+            this.tB_CATTableAdapter3 = new SMP.DB_SMPDataSet7TableAdapters.TB_CATTableAdapter();
             this.txtBuyingDate.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tBCATBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dB_SMPDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tBCATBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dB_SMPDataSet7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBSUPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dB_SMPDataSet3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tBCATBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dB_SMPDataSet1)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.Pn_Buyers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dB_SMPDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBCATBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dB_SMPDataSet5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tBCATBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dB_SMPDataSet6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buyersBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // simpleButton1
@@ -109,7 +124,7 @@ namespace SMP
             // 
             // txtid
             // 
-            this.txtid.Location = new System.Drawing.Point(6, 98);
+            this.txtid.Location = new System.Drawing.Point(63, 100);
             this.txtid.Name = "txtid";
             this.txtid.Size = new System.Drawing.Size(100, 22);
             this.txtid.TabIndex = 22;
@@ -117,31 +132,31 @@ namespace SMP
             // 
             // txtitemName
             // 
-            this.txtitemName.DataSource = this.tBCATBindingSource;
+            this.txtitemName.DataSource = this.tBCATBindingSource3;
             this.txtitemName.DisplayMember = "CAT_Name";
             this.txtitemName.FormattingEnabled = true;
             this.txtitemName.Location = new System.Drawing.Point(409, 18);
             this.txtitemName.Name = "txtitemName";
             this.txtitemName.Size = new System.Drawing.Size(231, 24);
             this.txtitemName.TabIndex = 20;
-            this.txtitemName.ValueMember = "CAT_Name";
+            this.txtitemName.ValueMember = "ID";
             // 
-            // tBCATBindingSource
+            // tBCATBindingSource3
             // 
-            this.tBCATBindingSource.DataMember = "TB_CAT";
-            this.tBCATBindingSource.DataSource = this.dB_SMPDataSet1;
+            this.tBCATBindingSource3.DataMember = "TB_CAT";
+            this.tBCATBindingSource3.DataSource = this.dB_SMPDataSet7;
             // 
-            // dB_SMPDataSet1
+            // dB_SMPDataSet7
             // 
-            this.dB_SMPDataSet1.DataSetName = "DB_SMPDataSet1";
-            this.dB_SMPDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.dB_SMPDataSet7.DataSetName = "DB_SMPDataSet7";
+            this.dB_SMPDataSet7.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // txtSuppliersName
             // 
             this.txtSuppliersName.DataSource = this.tBSUPBindingSource;
             this.txtSuppliersName.DisplayMember = "Sup_Name";
             this.txtSuppliersName.FormattingEnabled = true;
-            this.txtSuppliersName.Location = new System.Drawing.Point(213, 95);
+            this.txtSuppliersName.Location = new System.Drawing.Point(225, 104);
             this.txtSuppliersName.Name = "txtSuppliersName";
             this.txtSuppliersName.Size = new System.Drawing.Size(231, 24);
             this.txtSuppliersName.TabIndex = 19;
@@ -180,7 +195,7 @@ namespace SMP
             this.bunifuCustomLabel4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bunifuCustomLabel4.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bunifuCustomLabel4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.bunifuCustomLabel4.Location = new System.Drawing.Point(471, 101);
+            this.bunifuCustomLabel4.Location = new System.Drawing.Point(520, 104);
             this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
             this.bunifuCustomLabel4.Size = new System.Drawing.Size(92, 18);
             this.bunifuCustomLabel4.TabIndex = 8;
@@ -196,6 +211,16 @@ namespace SMP
             this.bunifuCustomLabel3.Size = new System.Drawing.Size(70, 18);
             this.bunifuCustomLabel3.TabIndex = 6;
             this.bunifuCustomLabel3.Text = "اسم الصنف";
+            // 
+            // tBCATBindingSource
+            // 
+            this.tBCATBindingSource.DataMember = "TB_CAT";
+            this.tBCATBindingSource.DataSource = this.dB_SMPDataSet1;
+            // 
+            // dB_SMPDataSet1
+            // 
+            this.dB_SMPDataSet1.DataSetName = "DB_SMPDataSet1";
+            this.dB_SMPDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // BtnAdd
             // 
@@ -237,6 +262,7 @@ namespace SMP
             this.txtTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalPrice.Location = new System.Drawing.Point(17, 129);
             this.txtTotalPrice.Name = "txtTotalPrice";
+            this.txtTotalPrice.ReadOnly = true;
             this.txtTotalPrice.Size = new System.Drawing.Size(231, 24);
             this.txtTotalPrice.TabIndex = 16;
             this.txtTotalPrice.Text = "0";
@@ -370,6 +396,38 @@ namespace SMP
             // 
             this.tB_SUPTableAdapter.ClearBeforeFill = true;
             // 
+            // dB_SMPDataSet5
+            // 
+            this.dB_SMPDataSet5.DataSetName = "DB_SMPDataSet5";
+            this.dB_SMPDataSet5.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tBCATBindingSource2
+            // 
+            this.tBCATBindingSource2.DataMember = "TB_CAT";
+            this.tBCATBindingSource2.DataSource = this.dB_SMPDataSet5;
+            // 
+            // tB_CATTableAdapter2
+            // 
+            this.tB_CATTableAdapter2.ClearBeforeFill = true;
+            // 
+            // dB_SMPDataSet6
+            // 
+            this.dB_SMPDataSet6.DataSetName = "DB_SMPDataSet6";
+            this.dB_SMPDataSet6.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // buyersBindingSource
+            // 
+            this.buyersBindingSource.DataMember = "Buyers";
+            this.buyersBindingSource.DataSource = this.dB_SMPDataSet6;
+            // 
+            // buyersTableAdapter
+            // 
+            this.buyersTableAdapter.ClearBeforeFill = true;
+            // 
+            // tB_CATTableAdapter3
+            // 
+            this.tB_CATTableAdapter3.ClearBeforeFill = true;
+            // 
             // frm_Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -385,16 +443,22 @@ namespace SMP
             this.Load += new System.EventHandler(this.Buyers_Load);
             this.txtBuyingDate.ResumeLayout(false);
             this.txtBuyingDate.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tBCATBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dB_SMPDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tBCATBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dB_SMPDataSet7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBSUPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dB_SMPDataSet3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tBCATBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dB_SMPDataSet1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.Pn_Buyers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dB_SMPDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBCATBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dB_SMPDataSet5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tBCATBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dB_SMPDataSet6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buyersBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -431,5 +495,14 @@ namespace SMP
         private System.Windows.Forms.BindingSource tBSUPBindingSource;
         private DB_SMPDataSet3TableAdapters.TB_SUPTableAdapter tB_SUPTableAdapter;
         public System.Windows.Forms.TextBox txtid;
+        private DB_SMPDataSet5 dB_SMPDataSet5;
+        private System.Windows.Forms.BindingSource tBCATBindingSource2;
+        private DB_SMPDataSet5TableAdapters.TB_CATTableAdapter tB_CATTableAdapter2;
+        private DB_SMPDataSet6 dB_SMPDataSet6;
+        private System.Windows.Forms.BindingSource buyersBindingSource;
+        private DB_SMPDataSet6TableAdapters.BuyersTableAdapter buyersTableAdapter;
+        private DB_SMPDataSet7 dB_SMPDataSet7;
+        private System.Windows.Forms.BindingSource tBCATBindingSource3;
+        private DB_SMPDataSet7TableAdapters.TB_CATTableAdapter tB_CATTableAdapter3;
     }
 }

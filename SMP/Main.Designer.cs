@@ -38,13 +38,13 @@ namespace SMP
             this.btn_Buyers = new DevExpress.XtraEditors.SimpleButton();
             this.btn_sup = new DevExpress.XtraEditors.SimpleButton();
             this.btnSells = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton10 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton11 = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Report = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_users = new DevExpress.XtraEditors.SimpleButton();
             this.pn_headernavbar = new System.Windows.Forms.Panel();
             this.pn_titlenavbar = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label_rol = new System.Windows.Forms.Label();
+            this.label_username = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_col = new DevExpress.XtraEditors.SimpleButton();
             this.pn_top = new System.Windows.Forms.Panel();
@@ -54,6 +54,7 @@ namespace SMP
             this.btn_close = new DevExpress.XtraEditors.SimpleButton();
             this.pn_Container = new System.Windows.Forms.Panel();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.btn_logout = new DevExpress.XtraEditors.SimpleButton();
             this.pn_navbar.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.pn_headernavbar.SuspendLayout();
@@ -82,8 +83,8 @@ namespace SMP
             this.flowLayoutPanel1.Controls.Add(this.btn_Buyers);
             this.flowLayoutPanel1.Controls.Add(this.btn_sup);
             this.flowLayoutPanel1.Controls.Add(this.btnSells);
-            this.flowLayoutPanel1.Controls.Add(this.simpleButton10);
-            this.flowLayoutPanel1.Controls.Add(this.simpleButton11);
+            this.flowLayoutPanel1.Controls.Add(this.btn_Report);
+            this.flowLayoutPanel1.Controls.Add(this.btn_users);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 238);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -170,35 +171,36 @@ namespace SMP
             this.btnSells.Text = "المبيعات";
             this.btnSells.Click += new System.EventHandler(this.btnSells_Click);
             // 
-            // simpleButton10
+            // btn_Report
             // 
-            this.simpleButton10.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton10.Appearance.ForeColor = System.Drawing.Color.DarkGray;
-            this.simpleButton10.Appearance.Options.UseFont = true;
-            this.simpleButton10.Appearance.Options.UseForeColor = true;
-            this.simpleButton10.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton10.ImageOptions.Image")));
-            this.simpleButton10.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-            this.simpleButton10.Location = new System.Drawing.Point(-17, 218);
-            this.simpleButton10.Name = "simpleButton10";
-            this.simpleButton10.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.simpleButton10.Size = new System.Drawing.Size(209, 37);
-            this.simpleButton10.TabIndex = 5;
-            this.simpleButton10.Text = "التقارير";
+            this.btn_Report.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Report.Appearance.ForeColor = System.Drawing.Color.DarkGray;
+            this.btn_Report.Appearance.Options.UseFont = true;
+            this.btn_Report.Appearance.Options.UseForeColor = true;
+            this.btn_Report.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton10.ImageOptions.Image")));
+            this.btn_Report.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+            this.btn_Report.Location = new System.Drawing.Point(-17, 218);
+            this.btn_Report.Name = "btn_Report";
+            this.btn_Report.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btn_Report.Size = new System.Drawing.Size(209, 37);
+            this.btn_Report.TabIndex = 5;
+            this.btn_Report.Text = "التقارير";
             // 
-            // simpleButton11
+            // btn_users
             // 
-            this.simpleButton11.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton11.Appearance.ForeColor = System.Drawing.Color.DarkGray;
-            this.simpleButton11.Appearance.Options.UseFont = true;
-            this.simpleButton11.Appearance.Options.UseForeColor = true;
-            this.simpleButton11.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton11.ImageOptions.Image")));
-            this.simpleButton11.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-            this.simpleButton11.Location = new System.Drawing.Point(-17, 261);
-            this.simpleButton11.Name = "simpleButton11";
-            this.simpleButton11.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.simpleButton11.Size = new System.Drawing.Size(209, 37);
-            this.simpleButton11.TabIndex = 6;
-            this.simpleButton11.Text = "المستخدمين";
+            this.btn_users.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_users.Appearance.ForeColor = System.Drawing.Color.DarkGray;
+            this.btn_users.Appearance.Options.UseFont = true;
+            this.btn_users.Appearance.Options.UseForeColor = true;
+            this.btn_users.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton11.ImageOptions.Image")));
+            this.btn_users.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+            this.btn_users.Location = new System.Drawing.Point(-17, 261);
+            this.btn_users.Name = "btn_users";
+            this.btn_users.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btn_users.Size = new System.Drawing.Size(209, 37);
+            this.btn_users.TabIndex = 6;
+            this.btn_users.Text = "المستخدمين";
+            this.btn_users.Click += new System.EventHandler(this.btn_users_Click_1);
             // 
             // pn_headernavbar
             // 
@@ -213,8 +215,8 @@ namespace SMP
             // pn_titlenavbar
             // 
             this.pn_titlenavbar.Controls.Add(this.pictureBox1);
-            this.pn_titlenavbar.Controls.Add(this.label2);
-            this.pn_titlenavbar.Controls.Add(this.label1);
+            this.pn_titlenavbar.Controls.Add(this.label_rol);
+            this.pn_titlenavbar.Controls.Add(this.label_username);
             this.pn_titlenavbar.Location = new System.Drawing.Point(52, 3);
             this.pn_titlenavbar.Name = "pn_titlenavbar";
             this.pn_titlenavbar.Size = new System.Drawing.Size(140, 176);
@@ -231,27 +233,27 @@ namespace SMP
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // label2
+            // label_rol
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.LimeGreen;
-            this.label2.Location = new System.Drawing.Point(52, 152);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 19);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "ادمن";
+            this.label_rol.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_rol.AutoSize = true;
+            this.label_rol.ForeColor = System.Drawing.Color.LimeGreen;
+            this.label_rol.Location = new System.Drawing.Point(52, 152);
+            this.label_rol.Name = "label_rol";
+            this.label_rol.Size = new System.Drawing.Size(29, 19);
+            this.label_rol.TabIndex = 1;
+            this.label_rol.Text = "ادمن";
             // 
-            // label1
+            // label_username
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label1.Location = new System.Drawing.Point(76, 133);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 19);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "ابرام ايمن";
+            this.label_username.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_username.AutoSize = true;
+            this.label_username.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label_username.Location = new System.Drawing.Point(76, 133);
+            this.label_username.Name = "label_username";
+            this.label_username.Size = new System.Drawing.Size(52, 19);
+            this.label_username.TabIndex = 1;
+            this.label_username.Text = "ابرام ايمن";
             // 
             // flowLayoutPanel2
             // 
@@ -276,6 +278,7 @@ namespace SMP
             // pn_top
             // 
             this.pn_top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.pn_top.Controls.Add(this.btn_logout);
             this.pn_top.Controls.Add(this.labl_title);
             this.pn_top.Controls.Add(this.btn_min);
             this.pn_top.Controls.Add(this.btn_max);
@@ -349,6 +352,18 @@ namespace SMP
             this.bunifuDragControl1.TargetControl = this.pn_top;
             this.bunifuDragControl1.Vertical = true;
             // 
+            // btn_logout
+            // 
+            this.btn_logout.Appearance.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_logout.Appearance.Options.UseFont = true;
+            this.btn_logout.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_logout.ImageOptions.SvgImage")));
+            this.btn_logout.Location = new System.Drawing.Point(167, 3);
+            this.btn_logout.Name = "btn_logout";
+            this.btn_logout.Size = new System.Drawing.Size(157, 49);
+            this.btn_logout.TabIndex = 3;
+            this.btn_logout.Text = "تسجيل الخروج";
+            this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click_1);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 19F);
@@ -384,9 +399,7 @@ namespace SMP
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private DevExpress.XtraEditors.SimpleButton btn_home;
         private System.Windows.Forms.Panel pn_headernavbar;
-        private System.Windows.Forms.Label label2;
         private DevExpress.XtraEditors.SimpleButton btn_col;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labl_title;
         private DevExpress.XtraEditors.SimpleButton btn_min;
@@ -396,12 +409,15 @@ namespace SMP
         private DevExpress.XtraEditors.SimpleButton btn_cat;
         private DevExpress.XtraEditors.SimpleButton btn_sup;
         private DevExpress.XtraEditors.SimpleButton btnSells;
-        private DevExpress.XtraEditors.SimpleButton simpleButton10;
-        private DevExpress.XtraEditors.SimpleButton simpleButton11;
         private System.Windows.Forms.Panel pn_titlenavbar;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         public DevExpress.XtraEditors.SimpleButton btn_Buyers;
+        private DevExpress.XtraEditors.SimpleButton btn_logout;
+        public System.Windows.Forms.Label label_rol;
+        public System.Windows.Forms.Label label_username;
+        public DevExpress.XtraEditors.SimpleButton btn_users;
+        public DevExpress.XtraEditors.SimpleButton btn_Report;
     }
 }
 

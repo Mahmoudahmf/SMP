@@ -27,5 +27,9 @@ namespace SMP
     
         public virtual DbSet<TB_CAT> TB_CAT { get; set; }
         public virtual DbSet<TB_SUP> TB_SUP { get; set; }
+        public virtual DbSet<Buyer> Buyers { get; set; }
+        public virtual DbSet<Invoice> Invoices { get; set; }
+        public virtual DbSet<Sell> Sells { get; set; }
+        public virtual DbSet<TB_Users> TB_Users { get; set; }
     }
 }

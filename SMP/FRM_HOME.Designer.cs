@@ -261,6 +261,7 @@ namespace SMP
             this.lblItemsNum.Size = new System.Drawing.Size(56, 42);
             this.lblItemsNum.TabIndex = 1;
             this.lblItemsNum.Text = "40";
+            this.lblItemsNum.Click += new System.EventHandler(this.lblItemsNum_Click);
             // 
             // label1
             // 

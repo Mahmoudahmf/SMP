@@ -61,59 +61,70 @@ namespace SMP
         private void BtnAdd_Click(object sender, EventArgs e)
         {
             Toast toast = new Toast();
-            if (txtitemName.Text == "" || txtSuppliersName.Text == "")
-            {
-                toast.labl_caption.Text = "يجيب ان تدخل البيانات";
-                toast.Show();
-
-            }
-            else
-            {
-                if (BtnAdd.Text == "إضافة")
+            try {
+              
+                if (txtitemName.Text == "" || txtSuppliersName.Text == "" || numericUpDown1.Value == 0 || txtBuy.Text == "")
                 {
-                    Buyer bu = new Buyer()
-
-                    {
-
-                        name = (txtitemName.Text),
-
-                        SuppliersName = txtSuppliersName.Text,
-                        BuyingDate = this.dateTimePicker1.Value.Date,
-                        BuyingPrice = float.Parse(txtBuy.Text),
-                        SellingPrice = float.Parse(txtSell.Text),
-                        Profit = float.Parse(txtTotalPrice.Text),
-                        itemsNumbers = int.Parse(numericUpDown1.Value.ToString())
-
-                    };
-                    db.Buyers.Add(bu);
-                    db.SaveChanges();
-                    toast.labl_caption.Text = "تم اضافة صنق جديد";
+                    toast.labl_caption.Text = "يجيب ان تدخل البيانات";
                     toast.Show();
-                    this.Close();
 
                 }
                 else
                 {
-                    Buyer buyer_add = new Buyer();
-                    int i = int.Parse(txtid.Text);
-                    buyer_add = db.Buyers.Where(s => s.Id == i).FirstOrDefault();
+                    if (BtnAdd.Text == "إضافة")
+                    {
 
-                    //sel_add.Id = id;
-                    buyer_add.name = (txtitemName.Text);
+                        Buyer bu = new Buyer()
+                        {
 
-                    buyer_add. SuppliersName = txtSuppliersName.Text;
-                    buyer_add. BuyingDate = this.dateTimePicker1.Value.Date;
-                    buyer_add. BuyingPrice = float.Parse(txtBuy.Text);
-                    buyer_add.SellingPrice = float.Parse(txtSell.Text);
-                    buyer_add.Profit = float.Parse(txtTotalPrice.Text);
-                    buyer_add.itemsNumbers = int.Parse(numericUpDown1.Value.ToString());
-                    db.SaveChanges();
-                    toast.labl_caption.Text = "تم تعديل صنف مبيع جديد";
-                    toast.Show();
-                    this.Close();
+                            name = (txtitemName.Text),
+
+                            SuppliersName = txtSuppliersName.Text,
+                            BuyingDate = this.dateTimePicker1.Value.Date,
+                            BuyingPrice = float.Parse(txtBuy.Text),
+                            SellingPrice = float.Parse(txtSell.Text),
+                            Profit = float.Parse(txtTotalPrice.Text),
+                            itemsNumbers = int.Parse(numericUpDown1.Value.ToString())
+
+                        };
+                        db.Buyers.Add(bu);
+                        int i = int.Parse(txtitemName.SelectedValue.ToString());
+                        TB_CAT tb_cat = db.TB_CAT.Where(x => x.ID == i).FirstOrDefault();
+                        tb_cat.ItemQuantity += int.Parse(numericUpDown1.Value.ToString());
+                        db.SaveChanges();
+                        toast.labl_caption.Text = "تم اضافة صنق جديد";
+                        toast.Show();
+                        this.Close();
+
+                    }
+                    else
+                    {
+                        Buyer buyer_add = new Buyer();
+                        int i = int.Parse(txtid.Text);
+                        buyer_add = db.Buyers.Where(s => s.Id == i).FirstOrDefault();
+
+                        //sel_add.Id = id;
+                        buyer_add.name = (txtitemName.Text);
+
+                        buyer_add.SuppliersName = txtSuppliersName.Text;
+                        buyer_add.BuyingDate = this.dateTimePicker1.Value.Date;
+                        buyer_add.BuyingPrice = float.Parse(txtBuy.Text);
+                        buyer_add.SellingPrice = float.Parse(txtSell.Text);
+                        buyer_add.Profit = float.Parse(txtTotalPrice.Text);
+                        buyer_add.itemsNumbers = int.Parse(numericUpDown1.Value.ToString());
+                        db.SaveChanges();
+                        toast.labl_caption.Text = "تم تعديل صنف مبيع جديد";
+                        toast.Show();
+                        this.Close();
+                    }
                 }
             }
-        }
+            catch
+            {
+                toast.labl_caption.Text = "برجاء ادخال البيانات صحيحة";
+                toast.Show();
+            }
+            }
             private void groupBox1_Enter(object sender, EventArgs e)
             {
 
@@ -142,8 +153,14 @@ namespace SMP
 
             private void Buyers_Load(object sender, EventArgs e)
             {
-                // TODO: This line of code loads data into the 'dB_SMPDataSet3.TB_SUP' table. You can move, or remove it, as needed.
-                this.tB_SUPTableAdapter.Fill(this.dB_SMPDataSet3.TB_SUP);
+            // TODO: This line of code loads data into the 'dB_SMPDataSet7.TB_CAT' table. You can move, or remove it, as needed.
+            this.tB_CATTableAdapter3.Fill(this.dB_SMPDataSet7.TB_CAT);
+            // TODO: This line of code loads data into the 'dB_SMPDataSet6.Buyers' table. You can move, or remove it, as needed.
+            this.buyersTableAdapter.Fill(this.dB_SMPDataSet6.Buyers);
+            // TODO: This line of code loads data into the 'dB_SMPDataSet5.TB_CAT' table. You can move, or remove it, as needed.
+            this.tB_CATTableAdapter2.Fill(this.dB_SMPDataSet5.TB_CAT);
+            // TODO: This line of code loads data into the 'dB_SMPDataSet3.TB_SUP' table. You can move, or remove it, as needed.
+            this.tB_SUPTableAdapter.Fill(this.dB_SMPDataSet3.TB_SUP);
                 // TODO: This line of code loads data into the 'dB_SMPDataSet2.TB_CAT' table. You can move, or remove it, as needed.
                 this.tB_CATTableAdapter1.Fill(this.dB_SMPDataSet2.TB_CAT);
                 // TODO: This line of code loads data into the 'dB_SMPDataSet1.TB_CAT' table. You can move, or remove it, as needed.

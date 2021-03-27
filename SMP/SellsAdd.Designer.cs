@@ -42,19 +42,24 @@ namespace SMP
             this.txtSell = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtItemName = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
+            this.txtitemName = new System.Windows.Forms.ComboBox();
+            this.tBCATBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dB_SMPDataSet8 = new SMP.DB_SMPDataSet8();
+            this.txtid = new System.Windows.Forms.TextBox();
             this.txtSellDate = new System.Windows.Forms.DateTimePicker();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.TxtCustomerName = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
-            this.txtid = new System.Windows.Forms.TextBox();
+            this.tB_CATTableAdapter = new SMP.DB_SMPDataSet8TableAdapters.TB_CATTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.pn_SellAdd)).BeginInit();
             this.pn_SellAdd.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tBCATBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dB_SMPDataSet8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -134,6 +139,7 @@ namespace SMP
             this.txtTotalPrice.Location = new System.Drawing.Point(217, 118);
             this.txtTotalPrice.Multiline = true;
             this.txtTotalPrice.Name = "txtTotalPrice";
+            this.txtTotalPrice.ReadOnly = true;
             this.txtTotalPrice.Size = new System.Drawing.Size(231, 29);
             this.txtTotalPrice.TabIndex = 16;
             this.txtTotalPrice.Text = "0";
@@ -168,6 +174,7 @@ namespace SMP
             this.txtSell.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSell.Location = new System.Drawing.Point(409, 31);
             this.txtSell.Name = "txtSell";
+            this.txtSell.ReadOnly = true;
             this.txtSell.Size = new System.Drawing.Size(231, 26);
             this.txtSell.TabIndex = 12;
             this.txtSell.Text = "0";
@@ -188,8 +195,8 @@ namespace SMP
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.LightGray;
+            this.groupBox1.Controls.Add(this.txtitemName);
             this.groupBox1.Controls.Add(this.txtid);
-            this.groupBox1.Controls.Add(this.txtItemName);
             this.groupBox1.Controls.Add(this.txtSellDate);
             this.groupBox1.Controls.Add(this.bunifuCustomLabel2);
             this.groupBox1.Controls.Add(this.bunifuCustomLabel3);
@@ -204,13 +211,35 @@ namespace SMP
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "البيانات الأساسية ";
             // 
-            // txtItemName
+            // txtitemName
             // 
-            this.txtItemName.BorderColor = System.Drawing.Color.SeaGreen;
-            this.txtItemName.Location = new System.Drawing.Point(409, 20);
-            this.txtItemName.Name = "txtItemName";
-            this.txtItemName.Size = new System.Drawing.Size(231, 22);
-            this.txtItemName.TabIndex = 20;
+            this.txtitemName.DataSource = this.tBCATBindingSource;
+            this.txtitemName.DisplayMember = "CAT_Name";
+            this.txtitemName.FormattingEnabled = true;
+            this.txtitemName.Location = new System.Drawing.Point(429, 18);
+            this.txtitemName.Name = "txtitemName";
+            this.txtitemName.Size = new System.Drawing.Size(231, 24);
+            this.txtitemName.TabIndex = 22;
+            this.txtitemName.ValueMember = "ID";
+            this.txtitemName.SelectedIndexChanged += new System.EventHandler(this.txtitemName_SelectedIndexChanged);
+            // 
+            // tBCATBindingSource
+            // 
+            this.tBCATBindingSource.DataMember = "TB_CAT";
+            this.tBCATBindingSource.DataSource = this.dB_SMPDataSet8;
+            // 
+            // dB_SMPDataSet8
+            // 
+            this.dB_SMPDataSet8.DataSetName = "DB_SMPDataSet8";
+            this.dB_SMPDataSet8.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // txtid
+            // 
+            this.txtid.Location = new System.Drawing.Point(39, 87);
+            this.txtid.Name = "txtid";
+            this.txtid.Size = new System.Drawing.Size(100, 22);
+            this.txtid.TabIndex = 21;
+            this.txtid.Visible = false;
             // 
             // txtSellDate
             // 
@@ -260,13 +289,9 @@ namespace SMP
             this.TxtCustomerName.Size = new System.Drawing.Size(231, 22);
             this.TxtCustomerName.TabIndex = 2;
             // 
-            // txtid
+            // tB_CATTableAdapter
             // 
-            this.txtid.Location = new System.Drawing.Point(39, 87);
-            this.txtid.Name = "txtid";
-            this.txtid.Size = new System.Drawing.Size(100, 22);
-            this.txtid.TabIndex = 21;
-            this.txtid.Visible = false;
+            this.tB_CATTableAdapter.ClearBeforeFill = true;
             // 
             // SellsAdd
             // 
@@ -279,6 +304,7 @@ namespace SMP
             this.MinimizeBox = false;
             this.Name = "SellsAdd";
             this.ShowIcon = false;
+            this.Load += new System.EventHandler(this.SellsAdd_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pn_SellAdd)).EndInit();
             this.pn_SellAdd.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -286,6 +312,8 @@ namespace SMP
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tBCATBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dB_SMPDataSet8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             this.ResumeLayout(false);
 
@@ -309,8 +337,11 @@ namespace SMP
         public DevExpress.XtraEditors.SimpleButton btn_close;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
         public System.Windows.Forms.NumericUpDown numericUpDown1;
-        public WindowsFormsControlLibrary1.BunifuCustomTextbox txtItemName;
         public System.Windows.Forms.DateTimePicker txtSellDate;
         public System.Windows.Forms.TextBox txtid;
+        public System.Windows.Forms.ComboBox txtitemName;
+        private DB_SMPDataSet8 dB_SMPDataSet8;
+        private System.Windows.Forms.BindingSource tBCATBindingSource;
+        private DB_SMPDataSet8TableAdapters.TB_CATTableAdapter tB_CATTableAdapter;
     }
 }

@@ -37,7 +37,7 @@ namespace SMP
 
         private void btnAddSup_Click(object sender, EventArgs e)
         {
-            FRM_CAT_ADD frm_addcat = new FRM_CAT_ADD();
+            FRM_SUP_ADD frm_addcat = new FRM_SUP_ADD();
             frm_addcat.ShowDialog();
         }
 
@@ -49,8 +49,15 @@ namespace SMP
 
         private void btnSell_Click(object sender, EventArgs e)
         {
+            
             SellsAdd frmselladd = new SellsAdd();
             frmselladd.ShowDialog();
+            
+        }
+
+        private void lblItemsNum_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

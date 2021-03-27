@@ -28,5 +28,7 @@ namespace SMP
     
         public virtual TB_CAT TB_CAT { get; set; }
         public virtual TB_SUP TB_SUP { get; set; }
+        public virtual TB_CAT TB_CAT1 { get; set; }
+        public virtual TB_CAT TB_CAT2 { get; set; }
     }
 }

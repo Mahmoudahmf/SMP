@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -25,11 +26,21 @@ namespace SMP
         private void btn_add_Click(object sender, EventArgs e)
         {
             Toast toast = new Toast();
-            //check
-            if (txt_name.Text == "" || txt_phone.Text == "")
+
+
+            if (txt_name.Text == "" && txt_phone.Text == "")
             {
-                toast.labl_caption.Text = "يجيب ان تدخل البيانات";
+                toast.labl_caption.Text = "  يجيب ان تدخل البيانات صحيحة";
                 toast.Show();
+               
+
+            }
+
+            else if (txt_phone.Text.Length < 11)
+            {
+                toast.labl_caption.Text = " يجيب ان يكون رقم الهاتف صحيح";
+                toast.Show();
+                
 
             }
             else
@@ -39,8 +50,8 @@ namespace SMP
                     //add
                     tb_sup.Sup_Name = txt_name.Text;
                     tb_sup.Sup_Phone = txt_phone.Text;
-                    tb_sup.Sup_Start_Date = DateTime.Parse(txt_start.Text);
-                    //tb_sup.Sup_Start_Date = dateTimePicker1.Value;
+                    //tb_sup.Sup_Start_Date = DateTime.Parse(txt_start.Text.ToString());
+                    tb_sup.Sup_Start_Date = dateTimePicker1.Value;
                     db.TB_SUP.Add(tb_sup);
                     db.SaveChanges();
                     toast.labl_caption.Text = "تم اضافة مورد جديد";
@@ -53,8 +64,8 @@ namespace SMP
                     tb_sup.ID = id;
                     tb_sup.Sup_Name = txt_name.Text;
                     tb_sup.Sup_Phone = txt_phone.Text;
-                    tb_sup.Sup_Start_Date = DateTime.Parse(txt_start.Text);
-                    
+                    tb_sup.Sup_Start_Date = DateTime.Parse(dateTimePicker1.Text);
+
 
                     db.Entry(tb_sup).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();

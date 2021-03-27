@@ -29,6 +29,7 @@ namespace SMP
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_CAT));
             this.pn_cat = new System.Windows.Forms.Panel();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
@@ -41,10 +42,14 @@ namespace SMP
             this.btn_delete = new DevExpress.XtraEditors.SimpleButton();
             this.btn_edit = new DevExpress.XtraEditors.SimpleButton();
             this.btn_add = new DevExpress.XtraEditors.SimpleButton();
+            this.colItemQuantity = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTotalBuy = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             this.pn_cat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.Footer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // pn_cat
@@ -84,7 +89,9 @@ namespace SMP
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colCAT_Name,
             this.colCAT_Price_buy,
-            this.colCAT_Price_sale});
+            this.colCAT_Price_sale,
+            this.colItemQuantity,
+            this.colTotalBuy});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
@@ -115,7 +122,7 @@ namespace SMP
             this.colCAT_Name.Name = "colCAT_Name";
             this.colCAT_Name.Visible = true;
             this.colCAT_Name.VisibleIndex = 0;
-            this.colCAT_Name.Width = 251;
+            this.colCAT_Name.Width = 178;
             // 
             // colCAT_Price_buy
             // 
@@ -127,31 +134,31 @@ namespace SMP
             this.colCAT_Price_buy.AppearanceHeader.Options.UseFont = true;
             this.colCAT_Price_buy.AppearanceHeader.Options.UseTextOptions = true;
             this.colCAT_Price_buy.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colCAT_Price_buy.Caption = "سعر الشراء ";
+            this.colCAT_Price_buy.Caption = "سعر الشراء(جنية) ";
             this.colCAT_Price_buy.FieldName = "CAT_Price_buy";
             this.colCAT_Price_buy.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("colCAT_Price_buy.ImageOptions.Image")));
             this.colCAT_Price_buy.Name = "colCAT_Price_buy";
             this.colCAT_Price_buy.Visible = true;
             this.colCAT_Price_buy.VisibleIndex = 1;
-            this.colCAT_Price_buy.Width = 213;
+            this.colCAT_Price_buy.Width = 169;
             // 
             // colCAT_Price_sale
             // 
             this.colCAT_Price_sale.AppearanceCell.Font = new System.Drawing.Font("Verdana", 11.25F);
             this.colCAT_Price_sale.AppearanceCell.Options.UseFont = true;
             this.colCAT_Price_sale.AppearanceHeader.BackColor = System.Drawing.Color.Cyan;
-            this.colCAT_Price_sale.AppearanceHeader.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colCAT_Price_sale.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.colCAT_Price_sale.AppearanceHeader.Options.UseBackColor = true;
             this.colCAT_Price_sale.AppearanceHeader.Options.UseFont = true;
             this.colCAT_Price_sale.AppearanceHeader.Options.UseTextOptions = true;
             this.colCAT_Price_sale.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colCAT_Price_sale.Caption = "سعر البيع ";
+            this.colCAT_Price_sale.Caption = "سعر البيع(جنية) ";
             this.colCAT_Price_sale.FieldName = "CAT_Price_sale";
             this.colCAT_Price_sale.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("colCAT_Price_sale.ImageOptions.Image")));
             this.colCAT_Price_sale.Name = "colCAT_Price_sale";
             this.colCAT_Price_sale.Visible = true;
             this.colCAT_Price_sale.VisibleIndex = 2;
-            this.colCAT_Price_sale.Width = 354;
+            this.colCAT_Price_sale.Width = 186;
             // 
             // Footer
             // 
@@ -218,6 +225,37 @@ namespace SMP
             this.btn_add.Text = "أضافة";
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
+            // colItemQuantity
+            // 
+            this.colItemQuantity.AppearanceHeader.BackColor = System.Drawing.Color.Cyan;
+            this.colItemQuantity.AppearanceHeader.FontSizeDelta = 2;
+            this.colItemQuantity.AppearanceHeader.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.colItemQuantity.AppearanceHeader.Options.UseBackColor = true;
+            this.colItemQuantity.AppearanceHeader.Options.UseFont = true;
+            this.colItemQuantity.Caption = "عدد الأصناف";
+            this.colItemQuantity.FieldName = "ItemQuantity";
+            this.colItemQuantity.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("colItemQuantity.ImageOptions.Image")));
+            this.colItemQuantity.Name = "colItemQuantity";
+            this.colItemQuantity.Visible = true;
+            this.colItemQuantity.VisibleIndex = 3;
+            this.colItemQuantity.Width = 120;
+            // 
+            // colTotalBuy
+            // 
+            this.colTotalBuy.AppearanceHeader.BackColor = System.Drawing.Color.Cyan;
+            this.colTotalBuy.AppearanceHeader.FontSizeDelta = 1;
+            this.colTotalBuy.AppearanceHeader.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.colTotalBuy.AppearanceHeader.Options.UseBackColor = true;
+            this.colTotalBuy.AppearanceHeader.Options.UseFont = true;
+            this.colTotalBuy.AppearanceHeader.Options.UseTextOptions = true;
+            this.colTotalBuy.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colTotalBuy.Caption = "اجمالى الشراء(جنية)";
+            this.colTotalBuy.FieldName = "TotalBuy";
+            this.colTotalBuy.Name = "colTotalBuy";
+            this.colTotalBuy.Visible = true;
+            this.colTotalBuy.VisibleIndex = 4;
+            this.colTotalBuy.Width = 165;
+            // 
             // FRM_CAT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -232,6 +270,7 @@ namespace SMP
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.Footer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -249,5 +288,8 @@ namespace SMP
         public DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Columns.GridColumn colCAT_Price_buy;
         private DevExpress.XtraGrid.Columns.GridColumn colCAT_Price_sale;
+        private DevExpress.XtraGrid.Columns.GridColumn colItemQuantity;
+        private DevExpress.XtraGrid.Columns.GridColumn colTotalBuy;
+        private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
     }
 }

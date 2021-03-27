@@ -37,7 +37,7 @@ namespace SMP
             this.label1 = new System.Windows.Forms.Label();
             this.txt_phone = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txt_start = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // labl_title
@@ -120,14 +120,15 @@ namespace SMP
             this.label2.TabIndex = 2;
             this.label2.Text = "تاريخ بدا العمل";
             // 
-            // txt_start
+            // dateTimePicker1
             // 
-            this.txt_start.Font = new System.Drawing.Font("Tahoma", 25F);
-            this.txt_start.Location = new System.Drawing.Point(113, 249);
-            this.txt_start.Name = "txt_start";
-            this.txt_start.Size = new System.Drawing.Size(253, 48);
-            this.txt_start.TabIndex = 3;
-            this.txt_start.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(113, 249);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dateTimePicker1.Size = new System.Drawing.Size(253, 45);
+            this.dateTimePicker1.TabIndex = 19;
             // 
             // FRM_SUP_ADD
             // 
@@ -135,9 +136,9 @@ namespace SMP
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(583, 395);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.btn_close);
             this.Controls.Add(this.btn_add);
-            this.Controls.Add(this.txt_start);
             this.Controls.Add(this.txt_phone);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -161,6 +162,6 @@ namespace SMP
         public System.Windows.Forms.TextBox txt_name;
         public System.Windows.Forms.TextBox txt_phone;
         private System.Windows.Forms.Label label2;
-        public System.Windows.Forms.TextBox txt_start;
+        public System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

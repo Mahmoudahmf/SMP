@@ -88,7 +88,7 @@ namespace SMP
 
             frm_add.txt_name.Text = tb_sup.Sup_Name.ToString();
             frm_add.txt_phone.Text = tb_sup.Sup_Phone.ToString();
-            frm_add.txt_start.Text = tb_sup.Sup_Start_Date.ToString();
+            frm_add.dateTimePicker1.Value = tb_sup.Sup_Start_Date.Value;
             
             frm_add.id = id;
             frm_add.btn_add.Text = "تعديل";

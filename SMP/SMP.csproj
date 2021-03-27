@@ -70,9 +70,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account.cs">
-      <DependentUpon>db.tt</DependentUpon>
-    </Compile>
     <Compile Include="Buyer.cs">
       <DependentUpon>db.tt</DependentUpon>
     </Compile>
@@ -128,6 +125,38 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DB_SMPDataSet4.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DB_SMPDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_SMPDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DB_SMPDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_SMPDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DB_SMPDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_SMPDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DB_SMPDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_SMPDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FRM_LOGIN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_LOGIN.Designer.cs">
+      <DependentUpon>FRM_LOGIN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRM_START.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_START.Designer.cs">
+      <DependentUpon>FRM_START.cs</DependentUpon>
+    </Compile>
     <Compile Include="FRM_SUP_ADD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +186,18 @@
     </Compile>
     <Compile Include="FRM_HOME.Designer.cs">
       <DependentUpon>FRM_HOME.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRM_USERS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_USERS.Designer.cs">
+      <DependentUpon>FRM_USERS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRM_USERS_ADD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRM_USERS_ADD.Designer.cs">
+      <DependentUpon>FRM_USERS_ADD.cs</DependentUpon>
     </Compile>
     <Compile Include="Invoice.cs">
       <DependentUpon>db.tt</DependentUpon>
@@ -205,6 +246,9 @@
     <Compile Include="TB_SUP.cs">
       <DependentUpon>db.tt</DependentUpon>
     </Compile>
+    <Compile Include="TB_Users.cs">
+      <DependentUpon>db.tt</DependentUpon>
+    </Compile>
     <Compile Include="Toast.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +260,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BuyersTable.resx">
       <DependentUpon>BuyersTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRM_LOGIN.resx">
+      <DependentUpon>FRM_LOGIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRM_START.resx">
+      <DependentUpon>FRM_START.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRM_SUP_ADD.resx">
       <DependentUpon>FRM_SUP_ADD.cs</DependentUpon>
@@ -231,6 +281,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FRM_HOME.resx">
       <DependentUpon>FRM_HOME.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRM_USERS.resx">
+      <DependentUpon>FRM_USERS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRM_USERS_ADD.resx">
+      <DependentUpon>FRM_USERS_ADD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -317,6 +373,50 @@
     <None Include="DB_SMPDataSet4.xss">
       <DependentUpon>DB_SMPDataSet4.xsd</DependentUpon>
     </None>
+    <None Include="DB_SMPDataSet5.xsc">
+      <DependentUpon>DB_SMPDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="DB_SMPDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_SMPDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_SMPDataSet5.xss">
+      <DependentUpon>DB_SMPDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="DB_SMPDataSet6.xsc">
+      <DependentUpon>DB_SMPDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="DB_SMPDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_SMPDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_SMPDataSet6.xss">
+      <DependentUpon>DB_SMPDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="DB_SMPDataSet7.xsc">
+      <DependentUpon>DB_SMPDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="DB_SMPDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_SMPDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_SMPDataSet7.xss">
+      <DependentUpon>DB_SMPDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="DB_SMPDataSet8.xsc">
+      <DependentUpon>DB_SMPDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="DB_SMPDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_SMPDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_SMPDataSet8.xss">
+      <DependentUpon>DB_SMPDataSet8.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -350,6 +450,7 @@
       <DependentUpon>db.edmx</DependentUpon>
       <LastGenOutput>db.cs</LastGenOutput>
     </Content>
+    <Content Include="Resources\person.png" />
     <Content Include="SMP_Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SMP_Model.Context.cs</LastGenOutput>

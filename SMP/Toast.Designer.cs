@@ -46,7 +46,7 @@ namespace SMP
             // 
             // labl_caption
             // 
-            this.labl_caption.BackColor = System.Drawing.Color.Red;
+            this.labl_caption.BackColor = System.Drawing.Color.Crimson;
             this.labl_caption.Font = new System.Drawing.Font("Lucida Console", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labl_caption.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.labl_caption.Location = new System.Drawing.Point(-1, 0);

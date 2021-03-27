@@ -12,9 +12,12 @@ namespace SMP
     using System;
     using System.Collections.Generic;
     
-    public partial class Account
+    public partial class TB_Users
     {
-        public int Id { get; set; }
-        public string AName { get; set; }
+        public string User_Name { get; set; }
+        public string User_Password { get; set; }
+        public string User_Rol { get; set; }
+        public string User_State { get; set; }
+        public int ID { get; set; }
     }
 }

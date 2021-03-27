@@ -32,11 +32,6 @@ namespace SMP
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pn_SellTable));
             this.pn_tablesells = new DevExpress.XtraEditors.PanelControl();
             this.pn_tablesell = new System.Windows.Forms.Panel();
-            this.Footer = new System.Windows.Forms.Panel();
-            this.btn_renew = new DevExpress.XtraEditors.SimpleButton();
-            this.btn_delete = new DevExpress.XtraEditors.SimpleButton();
-            this.btn_edit = new DevExpress.XtraEditors.SimpleButton();
-            this.btn_add = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.dB_SMPDataSet41 = new SMP.DB_SMPDataSet4();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -47,14 +42,19 @@ namespace SMP
             this.colSellQuantity = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTotalPrrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colInvoiceId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Footer = new System.Windows.Forms.Panel();
+            this.btn_renew = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_delete = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_edit = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_add = new DevExpress.XtraEditors.SimpleButton();
             this.sellsTableAdapter1 = new SMP.DB_SMPDataSet4TableAdapters.SellsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.pn_tablesells)).BeginInit();
             this.pn_tablesells.SuspendLayout();
             this.pn_tablesell.SuspendLayout();
-            this.Footer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dB_SMPDataSet41)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            this.Footer.SuspendLayout();
             this.SuspendLayout();
             // 
             // pn_tablesells
@@ -70,78 +70,13 @@ namespace SMP
             // 
             // pn_tablesell
             // 
-            this.pn_tablesell.Controls.Add(this.Footer);
             this.pn_tablesell.Controls.Add(this.gridControl1);
+            this.pn_tablesell.Controls.Add(this.Footer);
             this.pn_tablesell.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_tablesell.Location = new System.Drawing.Point(2, 2);
             this.pn_tablesell.Name = "pn_tablesell";
             this.pn_tablesell.Size = new System.Drawing.Size(821, 436);
             this.pn_tablesell.TabIndex = 0;
-            // 
-            // Footer
-            // 
-            this.Footer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Footer.Controls.Add(this.btn_renew);
-            this.Footer.Controls.Add(this.btn_delete);
-            this.Footer.Controls.Add(this.btn_edit);
-            this.Footer.Controls.Add(this.btn_add);
-            this.Footer.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Footer.Location = new System.Drawing.Point(0, 370);
-            this.Footer.Name = "Footer";
-            this.Footer.Size = new System.Drawing.Size(821, 66);
-            this.Footer.TabIndex = 4;
-            // 
-            // btn_renew
-            // 
-            this.btn_renew.Appearance.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_renew.Appearance.Options.UseFont = true;
-            this.btn_renew.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_renew.ImageOptions.Image")));
-            this.btn_renew.Location = new System.Drawing.Point(612, 11);
-            this.btn_renew.Name = "btn_renew";
-            this.btn_renew.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btn_renew.Size = new System.Drawing.Size(111, 44);
-            this.btn_renew.TabIndex = 1;
-            this.btn_renew.Text = "تحديث";
-            this.btn_renew.Click += new System.EventHandler(this.btn_renew_Click);
-            // 
-            // btn_delete
-            // 
-            this.btn_delete.Appearance.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_delete.Appearance.Options.UseFont = true;
-            this.btn_delete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_delete.ImageOptions.Image")));
-            this.btn_delete.Location = new System.Drawing.Point(410, 11);
-            this.btn_delete.Name = "btn_delete";
-            this.btn_delete.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btn_delete.Size = new System.Drawing.Size(111, 44);
-            this.btn_delete.TabIndex = 1;
-            this.btn_delete.Text = "حذف";
-            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
-            // 
-            // btn_edit
-            // 
-            this.btn_edit.Appearance.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_edit.Appearance.Options.UseFont = true;
-            this.btn_edit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_edit.ImageOptions.Image")));
-            this.btn_edit.Location = new System.Drawing.Point(230, 11);
-            this.btn_edit.Name = "btn_edit";
-            this.btn_edit.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btn_edit.Size = new System.Drawing.Size(111, 44);
-            this.btn_edit.TabIndex = 1;
-            this.btn_edit.Text = "تعديل";
-            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
-            // 
-            // btn_add
-            // 
-            this.btn_add.Appearance.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_add.Appearance.Options.UseFont = true;
-            this.btn_add.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_add.ImageOptions.Image")));
-            this.btn_add.Location = new System.Drawing.Point(63, 11);
-            this.btn_add.Name = "btn_add";
-            this.btn_add.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btn_add.Size = new System.Drawing.Size(111, 44);
-            this.btn_add.TabIndex = 1;
-            this.btn_add.Text = "أضافة";
-            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // gridControl1
             // 
@@ -153,7 +88,7 @@ namespace SMP
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(821, 436);
+            this.gridControl1.Size = new System.Drawing.Size(821, 370);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -278,6 +213,73 @@ namespace SMP
             this.colInvoiceId.VisibleIndex = 6;
             this.colInvoiceId.Width = 101;
             // 
+            // Footer
+            // 
+            this.Footer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Footer.Controls.Add(this.btn_renew);
+            this.Footer.Controls.Add(this.btn_delete);
+            this.Footer.Controls.Add(this.btn_edit);
+            this.Footer.Controls.Add(this.btn_add);
+            this.Footer.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Footer.Location = new System.Drawing.Point(0, 370);
+            this.Footer.Name = "Footer";
+            this.Footer.Size = new System.Drawing.Size(821, 66);
+            this.Footer.TabIndex = 4;
+            // 
+            // btn_renew
+            // 
+            this.btn_renew.Appearance.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_renew.Appearance.Options.UseFont = true;
+            this.btn_renew.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_renew.ImageOptions.Image")));
+            this.btn_renew.Location = new System.Drawing.Point(567, 11);
+            this.btn_renew.Name = "btn_renew";
+            this.btn_renew.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btn_renew.Size = new System.Drawing.Size(111, 44);
+            this.btn_renew.TabIndex = 1;
+            this.btn_renew.Text = "تحديث";
+            this.btn_renew.Click += new System.EventHandler(this.btn_renew_Click);
+            // 
+            // btn_delete
+            // 
+            this.btn_delete.Appearance.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_delete.Appearance.Options.UseFont = true;
+            this.btn_delete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_delete.ImageOptions.Image")));
+            this.btn_delete.Location = new System.Drawing.Point(176, 11);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btn_delete.Size = new System.Drawing.Size(111, 44);
+            this.btn_delete.TabIndex = 1;
+            this.btn_delete.Text = "حذف";
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
+            // 
+            // btn_edit
+            // 
+            this.btn_edit.Appearance.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_edit.Appearance.Options.UseFont = true;
+            this.btn_edit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_edit.ImageOptions.Image")));
+            this.btn_edit.Location = new System.Drawing.Point(26, 5);
+            this.btn_edit.Name = "btn_edit";
+            this.btn_edit.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btn_edit.Size = new System.Drawing.Size(111, 44);
+            this.btn_edit.TabIndex = 1;
+            this.btn_edit.Text = "تعديل";
+            this.btn_edit.Visible = false;
+            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
+            // 
+            // btn_add
+            // 
+            this.btn_add.Appearance.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_add.Appearance.Options.UseFont = true;
+            this.btn_add.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_add.ImageOptions.Image")));
+            this.btn_add.Location = new System.Drawing.Point(361, 11);
+            this.btn_add.Name = "btn_add";
+            this.btn_add.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btn_add.Size = new System.Drawing.Size(111, 44);
+            this.btn_add.TabIndex = 1;
+            this.btn_add.Text = "أضافة";
+            this.btn_add.Visible = false;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
+            // 
             // sellsTableAdapter1
             // 
             this.sellsTableAdapter1.ClearBeforeFill = true;
@@ -295,10 +297,10 @@ namespace SMP
             ((System.ComponentModel.ISupportInitialize)(this.pn_tablesells)).EndInit();
             this.pn_tablesells.ResumeLayout(false);
             this.pn_tablesell.ResumeLayout(false);
-            this.Footer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dB_SMPDataSet41)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            this.Footer.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

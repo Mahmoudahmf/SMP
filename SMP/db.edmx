@@ -5,13 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DB_SMPModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Account">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AName" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
         <EntityType Name="Buyers">
           <Key>
             <PropertyRef Name="Id" />
@@ -63,6 +56,8 @@
           <Property Name="CAT_Name" Type="nvarchar" MaxLength="50" />
           <Property Name="CAT_Price_buy" Type="float" />
           <Property Name="CAT_Price_sale" Type="float" />
+          <Property Name="ItemQuantity" Type="int" />
+          <Property Name="TotalBuy" Type="float" />
         </EntityType>
         <EntityType Name="TB_SUP">
           <Key>
@@ -73,49 +68,29 @@
           <Property Name="Sup_Phone" Type="nvarchar" MaxLength="50" />
           <Property Name="Sup_Start_Date" Type="datetime" />
         </EntityType>
-        <Association Name="FK_Buyers_TB_SUP">
-          <End Role="TB_CAT" Type="Self.TB_CAT" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
+        <EntityType Name="TB_Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_Rol" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_State" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Buyers_TB_CAT">
+          <End Role="TB_CAT" Type="Self.TB_CAT" Multiplicity="0..1" />
           <End Role="Buyers" Type="Self.Buyers" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TB_CAT">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Buyers">
-              <PropertyRef Name="CatId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Buyers_TB_SUP1">
-          <End Role="TB_SUP" Type="Self.TB_SUP" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Buyers" Type="Self.Buyers" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TB_SUP">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Buyers">
-              <PropertyRef Name="SuppId" />
+              <PropertyRef Name="itemNumber" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Sells_Invoice">
-          <End Role="Invoice" Type="Self.Invoice" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Sells" Type="Self.Sells" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Invoice">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Sells">
-              <PropertyRef Name="InvoiceId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Sells_TB_CAT">
           <End Role="TB_CAT" Type="Self.TB_CAT" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -130,25 +105,17 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="DB_SMPModel1StoreContainer">
-          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Buyers" EntityType="Self.Buyers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sells" EntityType="Self.Sells" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TB_CAT" EntityType="Self.TB_CAT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TB_SUP" EntityType="Self.TB_SUP" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Buyers_TB_SUP" Association="Self.FK_Buyers_TB_SUP">
+          <EntitySet Name="TB_Users" EntityType="Self.TB_Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Buyers_TB_CAT" Association="Self.FK_Buyers_TB_CAT">
             <End Role="TB_CAT" EntitySet="TB_CAT" />
             <End Role="Buyers" EntitySet="Buyers" />
           </AssociationSet>
-          <AssociationSet Name="FK_Buyers_TB_SUP1" Association="Self.FK_Buyers_TB_SUP1">
-            <End Role="TB_SUP" EntitySet="TB_SUP" />
-            <End Role="Buyers" EntitySet="Buyers" />
-          </AssociationSet>
           <AssociationSet Name="FK_Sells_Invoice" Association="Self.FK_Sells_Invoice">
-            <End Role="Invoice" EntitySet="Invoice" />
-            <End Role="Sells" EntitySet="Sells" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Sells_TB_CAT" Association="Self.FK_Sells_TB_CAT">
             <End Role="TB_CAT" EntitySet="TB_CAT" />
             <End Role="Sells" EntitySet="Sells" />
           </AssociationSet>
@@ -157,13 +124,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DB_SMPModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Account">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-        </EntityType>
         <EntityType Name="Buyer">
           <Key>
             <PropertyRef Name="Id" />
@@ -181,6 +141,8 @@
           <Property Name="SuppId" Type="Int32" />
           <NavigationProperty Name="TB_CAT" Relationship="DB_SMPModel1.FK_Buyers_TB_SUP" FromRole="Buyer" ToRole="TB_CAT" />
           <NavigationProperty Name="TB_SUP" Relationship="DB_SMPModel1.FK_Buyers_TB_SUP1" FromRole="Buyer" ToRole="TB_SUP" />
+          <NavigationProperty Name="TB_CAT1" Relationship="DB_SMPModel1.FK_Buyers_TB_CAT" FromRole="Buyer" ToRole="TB_CAT" />
+          <NavigationProperty Name="TB_CAT2" Relationship="DB_SMPModel1.FK_Buyers_TB_CAT1" FromRole="Buyer" ToRole="TB_CAT" />
         </EntityType>
         <EntityType Name="Invoice">
           <Key>
@@ -222,6 +184,10 @@
           <Property Name="CAT_Price_sale" Type="Double" />
           <NavigationProperty Name="Buyers" Relationship="DB_SMPModel1.FK_Buyers_TB_SUP" FromRole="TB_CAT" ToRole="Buyer" />
           <NavigationProperty Name="Sells" Relationship="DB_SMPModel1.FK_Sells_TB_CAT" FromRole="TB_CAT" ToRole="Sell" />
+          <Property Name="ItemQuantity" Type="Int32" />
+          <Property Name="TotalBuy" Type="Double" />
+          <NavigationProperty Name="Buyers1" Relationship="DB_SMPModel1.FK_Buyers_TB_CAT" FromRole="TB_CAT" ToRole="Buyer" />
+          <NavigationProperty Name="Buyers2" Relationship="DB_SMPModel1.FK_Buyers_TB_CAT1" FromRole="TB_CAT" ToRole="Buyer" />
         </EntityType>
         <EntityType Name="TB_SUP">
           <Key>
@@ -234,7 +200,6 @@
           <NavigationProperty Name="Buyers" Relationship="DB_SMPModel1.FK_Buyers_TB_SUP1" FromRole="TB_SUP" ToRole="Buyer" />
         </EntityType>
         <EntityContainer Name="DB_SMPEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Accounts" EntityType="Self.Account" />
           <EntitySet Name="Buyers" EntityType="Self.Buyer" />
           <EntitySet Name="Invoices" EntityType="Self.Invoice" />
           <EntitySet Name="Sells" EntityType="Self.Sell" />
@@ -256,6 +221,15 @@
             <End Role="TB_CAT" EntitySet="TB_CAT" />
             <End Role="Sell" EntitySet="Sells" />
           </AssociationSet>
+          <AssociationSet Name="FK_Buyers_TB_CAT" Association="DB_SMPModel1.FK_Buyers_TB_CAT">
+            <End Role="TB_CAT" EntitySet="TB_CAT" />
+            <End Role="Buyer" EntitySet="Buyers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Buyers_TB_CAT1" Association="DB_SMPModel1.FK_Buyers_TB_CAT1">
+            <End Role="TB_CAT" EntitySet="TB_CAT" />
+            <End Role="Buyer" EntitySet="Buyers" />
+          </AssociationSet>
+          <EntitySet Name="TB_Users" EntityType="DB_SMPModel1.TB_Users" />
         </EntityContainer>
         <Association Name="FK_Buyers_TB_SUP">
           <End Type="DB_SMPModel1.TB_CAT" Role="TB_CAT" Multiplicity="0..1">
@@ -313,20 +287,46 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Buyers_TB_CAT">
+          <End Type="DB_SMPModel1.TB_CAT" Role="TB_CAT" Multiplicity="0..1" />
+          <End Type="DB_SMPModel1.Buyer" Role="Buyer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_CAT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Buyer">
+              <PropertyRef Name="itemsNumbers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Buyers_TB_CAT1">
+          <End Type="DB_SMPModel1.TB_CAT" Role="TB_CAT" Multiplicity="0..1" />
+          <End Type="DB_SMPModel1.Buyer" Role="Buyer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_CAT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Buyer">
+              <PropertyRef Name="itemNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TB_Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="User_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="User_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="User_Rol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="User_State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DB_SMPModel1StoreContainer" CdmEntityContainer="DB_SMPEntities1">
-          <EntitySetMapping Name="Accounts">
-            <EntityTypeMapping TypeName="DB_SMPModel1.Account">
-              <MappingFragment StoreEntitySet="Account">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="AName" ColumnName="AName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Buyers">
             <EntityTypeMapping TypeName="DB_SMPModel1.Buyer">
               <MappingFragment StoreEntitySet="Buyers">
@@ -376,6 +376,8 @@
           <EntitySetMapping Name="TB_CAT">
             <EntityTypeMapping TypeName="DB_SMPModel1.TB_CAT">
               <MappingFragment StoreEntitySet="TB_CAT">
+                <ScalarProperty Name="TotalBuy" ColumnName="TotalBuy" />
+                <ScalarProperty Name="ItemQuantity" ColumnName="ItemQuantity" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CAT_Name" ColumnName="CAT_Name" />
                 <ScalarProperty Name="CAT_Price_buy" ColumnName="CAT_Price_buy" />
@@ -390,6 +392,17 @@
                 <ScalarProperty Name="Sup_Name" ColumnName="Sup_Name" />
                 <ScalarProperty Name="Sup_Phone" ColumnName="Sup_Phone" />
                 <ScalarProperty Name="Sup_Start_Date" ColumnName="Sup_Start_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Users">
+            <EntityTypeMapping TypeName="DB_SMPModel1.TB_Users">
+              <MappingFragment StoreEntitySet="TB_Users">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="User_State" ColumnName="User_State" />
+                <ScalarProperty Name="User_Rol" ColumnName="User_Rol" />
+                <ScalarProperty Name="User_Password" ColumnName="User_Password" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

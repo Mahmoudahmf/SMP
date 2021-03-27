@@ -77,6 +77,11 @@ namespace SMP
         //renew function
         private void update_data()
         {
+            Toast toast = new Toast();
+
+            var w = tb_cat = db.TB_CAT.Where(x => x.ItemQuantity <= 0).FirstOrDefault();
+            toast.labl_caption.Text = "(" + w.CAT_Name + ")" + "\t لا يوجد كمية من هذا الصنف ";
+            toast.Show();
             db = new DB_SMPEntities1();
            gridControl1.DataSource = db.TB_CAT.ToList();
         }

@@ -51,11 +51,11 @@ namespace SMP
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            sellsadd.ShowDialog();
+            sellsadd.Show();
         }
         void Update_data()
         {
-         //   db = new DB_SMPEntities1();
+           db = new DB_SMPEntities1();
             gridControl1.DataSource = db.Sells.ToList();
         }
 
@@ -89,21 +89,24 @@ namespace SMP
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
-            SellsAdd frm_add = new SellsAdd();
-            id = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
-            tb_sell = db.Sells.Where(x => x.Id == id).FirstOrDefault();
-            tb_sell.Id = id;
-            frm_add.txtid.Text = tb_sell.Id.ToString();
-            frm_add.txtItemName.Text = tb_sell.ItemName.ToString();
-            frm_add.TxtCustomerName.Text= tb_sell.CustomerId.ToString();
-            frm_add.txtSell.Text = tb_sell.SellPrice.ToString();
-            frm_add.txtTotalPrice.Text = tb_sell.TotalPrrice.ToString();
-            frm_add.numericUpDown1.Value = int.Parse(tb_sell.SellQuantity.ToString());
-            frm_add.txtSellDate.Value = DateTime.Parse( tb_sell.SellDate.ToString());
-            frm_add.Show();
-            frm_add.BtnAdd.Text = "تعديل";
-            db.Entry(tb_sell).State = System.Data.Entity.EntityState.Modified;
-            db.SaveChanges();
+            //SellsAdd frm_add = new SellsAdd();
+            //id = Convert.ToInt32(gridView1.GetFocusedRowCellValue("Id"));
+            //tb_sell = db.Sells.Where(x => x.Id == id).FirstOrDefault();
+            //tb_sell.Id = id;
+            //frm_add.txtid.Text = tb_sell.Id.ToString();
+            //frm_add.txtitemName.SelectedValue = tb_sell.ItemName.ToString();
+            //frm_add.TxtCustomerName.Text= tb_sell.CustomerId.ToString();
+            //frm_add.txtSell.Text = tb_sell.SellPrice.ToString();
+            //frm_add.txtTotalPrice.Text = tb_sell.TotalPrrice.ToString();
+            //frm_add.numericUpDown1.Value = int.Parse(tb_sell.SellQuantity.ToString());
+            //frm_add.txtSellDate.Value = DateTime.Parse( tb_sell.SellDate.ToString());
+            //frm_add.Show();
+            //frm_add.BtnAdd.Text = "تعديل";
+            //int i = int.Parse(frm_add.txtitemName.SelectedValue.ToString());
+            //TB_CAT tb1_cat = db.TB_CAT.Where(x => x.ID == i).FirstOrDefault();
+            //frm_add. txtSell.Text = tb1_cat.CAT_Price_sale.ToString();
+            //db.Entry(tb_sell).State = System.Data.Entity.EntityState.Modified;
+            //db.SaveChanges();
         }
     }
     }

@@ -7,6 +7,12 @@
       <Diagram DiagramId="8c4dcace3b1f4dc8b598bb5763ebdc43" Name="Diagram1">
         <EntityTypeShape EntityType="DB_SMPModel.TB_CAT" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_SMPModel.TB_SUP" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_SMPModel.Buyer" Width="1.5" PointX="3" PointY="9.375" />
+        <EntityTypeShape EntityType="DB_SMPModel.Invoice" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_SMPModel.Sell" Width="1.5" PointX="3" PointY="5.75" />
+        <EntityTypeShape EntityType="DB_SMPModel.TB_Users" Width="1.5" PointX="5.375" PointY="4.75" />
+        <AssociationConnector Association="DB_SMPModel.FK_Buyers_TB_CAT" />
+        <AssociationConnector Association="DB_SMPModel.FK_Sells_Invoice" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

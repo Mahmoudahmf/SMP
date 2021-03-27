@@ -19,6 +19,8 @@ namespace SMP
         frm_Add frm_buyers = new frm_Add();
         BuyersTable frm_buyers_table = new BuyersTable();
         Pn_SellTable frmsellsTable = new Pn_SellTable();
+        FRM_USERS frm_users = new FRM_USERS();
+        TB_Users tb_user = new TB_Users();
         DB_SMPEntities1 db = new DB_SMPEntities1();
 
         public Main()
@@ -79,6 +81,22 @@ namespace SMP
 
         private void Main_Load(object sender, EventArgs e)
         {
+            pn_Container.Controls.Clear();
+            pn_Container.Controls.Add(frm_home.pn_home);
+            //rol
+            if (label_rol.Text == "ادمن")
+            {
+                btn_users.Enabled = true;
+                btn_Report.Enabled = true;
+
+            }
+            else
+            {
+                btn_users.Enabled = false;
+                btn_Report.Enabled = false;
+
+            }
+
             frm_home.lblSellNum.Text = Context.Sells.Count().ToString();
             frm_home.lblBuyerNum.Text = Context.Buyers.Count().ToString();
             frm_home.lblSupNum.Text = Context.TB_SUP.Count().ToString();
@@ -130,6 +148,32 @@ namespace SMP
             frm_home.lblBuyerNum.Text = Context.Buyers.Count().ToString();
             frm_home.lblSupNum.Text = Context.TB_SUP.Count().ToString();
             frm_home.lblItemsNum.Text = Context.TB_CAT.Count().ToString();
+        }
+       
+      
+        private void btn_logout_Click_1(object sender, EventArgs e)
+        {
+            FRM_LOGIN login = new FRM_LOGIN();
+
+
+            tb_user = db.TB_Users.Where(x => x.User_State == "True").FirstOrDefault();
+
+            tb_user.User_State = "Fales";
+            db.Entry(tb_user).State = System.Data.Entity.EntityState.Modified;
+
+            db.SaveChanges();
+
+            this.Enabled = false;
+            login.Show();
+            this.Hide();
+
+        }
+
+        private void btn_users_Click_1(object sender, EventArgs e)
+        {
+            pn_Container.Controls.Clear();
+            pn_Container.Controls.Add(frm_users.pn_sup);
+            labl_title.Text = btn_users.Text;
         }
     }
 }

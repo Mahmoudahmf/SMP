@@ -4,8 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5d9d59226c98451595cadc982bc60873" Name="Diagram1">
-        <EntityTypeShape EntityType="DB_SMPModel1.Account" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="5d9d59226c98451595cadc982bc60873" Name="Diagram1" ZoomLevel="91">
         <EntityTypeShape EntityType="DB_SMPModel1.Buyer" Width="1.5" PointX="2.625" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_SMPModel1.Invoice" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_SMPModel1.Sell" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
@@ -15,6 +14,9 @@
         <AssociationConnector Association="DB_SMPModel1.FK_Buyers_TB_SUP1" />
         <AssociationConnector Association="DB_SMPModel1.FK_Sells_Invoice" />
         <AssociationConnector Association="DB_SMPModel1.FK_Sells_TB_CAT" />
+        <AssociationConnector Association="DB_SMPModel1.FK_Buyers_TB_CAT" />
+        <AssociationConnector Association="DB_SMPModel1.FK_Buyers_TB_CAT1" />
+        <EntityTypeShape EntityType="DB_SMPModel1.TB_Users" Width="1.5" PointX="7.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
